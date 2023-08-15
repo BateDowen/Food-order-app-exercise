@@ -18,7 +18,10 @@
   justify-content: space-between;
   align-items: center;
 }
-
+.descripton{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding-bottom: 10px;
+}
 .price {
   font-weight: bold;
   color: #8a2b06;
