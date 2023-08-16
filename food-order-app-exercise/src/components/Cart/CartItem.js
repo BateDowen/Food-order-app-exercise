@@ -3,7 +3,11 @@ import Form from './CartItemForm';
 
 const CartItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
-
+  const onAdd = (event) =>{
+    event.preventDefault();
+    const amount = event.target[0].value;
+    localStorage.setItem(props.name, JSON.stringify([props,{'quantity':amount}]))
+};
   return (
     <li className={classes['cart-item']}>
       <div>
@@ -15,7 +19,7 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <Form />
+        <Form onSubmit={onAdd}/>
       </div>
     </li>
   );
