@@ -2,10 +2,8 @@ import Input from "../UI/Input";
 import classes from "./CartItemForm.module.css";
 
 const Form = (props) => {
- 
-  
   return (
-    <form className={classes.form}  onSubmit={props.onSubmit}>
+    <form className={classes.form} onSubmit={props.onSubmit}>
       <Input
         label="Amount"
         input={{
@@ -22,6 +20,3 @@ const Form = (props) => {
   );
 };
 export default Form;
-
-
-

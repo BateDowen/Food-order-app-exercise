@@ -1,15 +1,18 @@
-import classes from './CartItem.module.css';
-import Form from './CartItemForm';
+import classes from "./CartItem.module.css";
+import Form from "./CartItemForm";
 
 const CartItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
-  const onAdd = (event) =>{
+  const onAdd = (event) => {
     event.preventDefault();
     const amount = event.target[0].value;
-    localStorage.setItem(props.name, JSON.stringify([props,{'quantity':amount}]))
-};
+    localStorage.setItem(
+      props.name,
+      JSON.stringify([props, { quantity: amount }])
+    );
+  };
   return (
-    <li className={classes['cart-item']}>
+    <li className={classes["cart-item"]}>
       <div>
         <h2>{props.name}</h2>
         <div className={classes.descripton}>{props.description}</div>
@@ -19,7 +22,7 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <Form onSubmit={onAdd}/>
+        <Form onSubmit={onAdd} />
       </div>
     </li>
   );
