@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Card from "../UI/Card";
+
 
 const YourCart = (props) => {
   const items = { ...localStorage };
@@ -24,9 +24,7 @@ for (let item in items) {
 }
   return (
     <ul>{cart}</ul>
-    //    <Card>
-    //     <ul>{cart}</ul>
-    //    </Card>
+  
   );
 };
 
