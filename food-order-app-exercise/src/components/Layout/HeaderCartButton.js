@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from "react";
 import CartIcon from "../Cart/CartIcon";
-import ReactDOM from 'react-dom/client';
 
 import classes from "./HeaderCartButton.module.css";
 import YourCart from "../Cart/YourCart";
@@ -21,7 +20,7 @@ const HeaderCartButton = (props) => {
         </span>
         <span>Your Cart </span>
         <span className={classes.badge}>{localStorage.length}</span>
-      {isShown && <YourCart />}
+      {/* {isShown && <YourCart />} */}
       </button>
     </Fragment>
   );
