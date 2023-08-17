@@ -20,7 +20,7 @@ const HeaderCartButton = (props) => {
         </span>
         <span>Your Cart </span>
         <span className={classes.badge}>{localStorage.length}</span>
-      {/* {isShown && <YourCart />} */}
+      {isShown && <YourCart />}
       </button>
     </Fragment>
   );

@@ -2,7 +2,6 @@ import { Fragment, useState } from "react";
 import AuthContext from "./components/context/auth-context";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
-import YourCart from "./components/Cart/YourCart";
 
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
   return (
     // <AuthContext.Provider value={isLoggedIn}>
       <Fragment>
-      <YourCart />
       <Header/>
       <main>
         <Meals />
