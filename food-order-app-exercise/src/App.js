@@ -1,27 +1,16 @@
-import { Fragment, useState } from "react";
-import AuthContext from "./components/context/auth-context";
+import { useState } from "react";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
-
+import CartProvider from "./components/store/CartProvider";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const loginHandler = (email,password) =>{
-    localStorage.setItem('user', true);
-    setIsLoggedIn(true);
-    
-  }
   return (
-    // <AuthContext.Provider value={isLoggedIn}>
-      <Fragment>
-      <Header/>
+    <CartProvider>
+      <Header />
       <main>
         <Meals />
-      
       </main>
-
-      </Fragment>
-    // {/* </AuthContext.Provider> */}
+    </CartProvider>
   );
 }
 
