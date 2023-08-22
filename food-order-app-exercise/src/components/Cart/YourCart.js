@@ -5,12 +5,17 @@ import CartContext from "../store/cart-context";
 
 const YourCart = (props) => {
   const cartCtx = useContext(CartContext);
-
+console.log(cartCtx);
   const cart = (
     <ul className={classes["cart-items"]}>
       {cartCtx.items.map((item) => {
         return (
-        <li key={item.id}>{item.name} </li>
+          <div key={item.id} className={classes.total}>
+            <li >{item.name}</li>
+            <li>x {item.amount}</li>
+            <li>${item.price}</li>
+          </div>
+
         );
       })}
     </ul>
@@ -21,7 +26,7 @@ const YourCart = (props) => {
       {cart}
       <div className={classes.total}>
         <span>Total amount:</span>
-        <span>${cartCtx.totalAmount}</span>
+        <span>${cartCtx.totalAmount.toFixed(2)}</span>
         <div className={classes.actions}>
           <button className={classes["button--alt"]}>Close</button>
         </div>
