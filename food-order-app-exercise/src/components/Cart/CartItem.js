@@ -1,15 +1,21 @@
+import { useContext } from "react";
 import classes from "./CartItem.module.css";
 import Form from "./CartItemForm";
+import CartContext from "../store/cart-context";
 
 const CartItem = (props) => {
+  const cartCtx = useContext(CartContext);
   const price = `$${props.price.toFixed(2)}`;
   const onAdd = (event) => {
     event.preventDefault();
     const amount = event.target[0].value;
-    localStorage.setItem(
-      props.name,
-      JSON.stringify([props, { quantity: amount }])
-    );
+    cartCtx.addItem({
+      id:props.id,
+      name:props.name,
+      amount: Number(amount),
+      price: props.price
+    })
+    
   };
   return (
     <li className={classes["cart-item"]}>

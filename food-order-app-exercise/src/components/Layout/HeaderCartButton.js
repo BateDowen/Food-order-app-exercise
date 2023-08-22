@@ -1,13 +1,17 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import CartIcon from "../Cart/CartIcon";
 
 import classes from "./HeaderCartButton.module.css";
 import YourCart from "../Cart/YourCart";
+import CartContext from "../store/cart-context";
 
-const hasItems = localStorage.length > 0
 const HeaderCartButton = (props) => {
   const [isShown,setIsShown]= useState(false);
 
+  const cartCtx = useContext(CartContext);
+  const numberOfCartItems  = cartCtx.items.reduce((currNumber, item) =>{
+    return currNumber + item.amount
+  }, 0)
   function yourCart(event) {
       event.preventDefault();
       setIsShown(current => !current)
@@ -19,8 +23,8 @@ const HeaderCartButton = (props) => {
           <CartIcon />
         </span>
         <span>Your Cart </span>
-        <span className={classes.badge}>{localStorage.length}</span>
-      {isShown && <YourCart />}
+        <span className={classes.badge}>{numberOfCartItems}</span>
+      {isShown && <YourCart  />}
       </button>
     </Fragment>
   );
